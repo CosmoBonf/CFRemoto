@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="manifest.json">
+    <title>Login - CF REMOTO</title>
+    <!-- Link para a fonte Inter do Google Fonts para um visual moderno -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Link para o seu arquivo CSS externo -->
+    <link rel="stylesheet" href="styles.css"> 
+    <link rel="icon" href="img/cf.ico" type="image/x-icon">
+    <script src="https://apis.google.com/js/api:client.js"></script> <!-- Google API -->
+</head>
+<body>
+    <div id="app">
+        <img src="img/cf.ico" alt="cf.ico" class="logo">
+        
+        <div class="login-section"> <!-- Classe para estilizar o container de login -->
+            <h1>Login</h1>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="Digite seu email" required>
+                
+                <!-- NOVO: Campo para a senha -->
+                <label for="password">Senha:</label>
+                <input type="password" id="password" placeholder="Digite sua senha" required>
+                
+                <button id="loginButton">Login</button>
+            </div>
+
+            <div class="google-login">
+                <button id="googleLoginButton">Login com Google</button>
+            </div>
+
+            <div class="register-link">
+                <button id="registerButton">Cadastrar nova conta</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

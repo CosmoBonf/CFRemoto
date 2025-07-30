@@ -2,460 +2,231 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
-    <meta name="description" content="CFSUPPORT - Empresa especializada em desenvolvimento de software, suporte técnico e hospedagem em nuvem. Soluções completas em tecnologia.">
-    <meta name="keywords" content="desenvolvimento software, suporte técnico, hospedagem nuvem, CFSUPPORT, tecnologia">
-    <meta name="author" content="CFSUPPORT">
-    <meta property="og:title" content="CFSUPPORT - Desenvolvimento de Software e Serviços de TI">
-    <meta property="og:description" content="Soluções completas em tecnologia para impulsionar seu negócio">
-    <meta property="og:image" content="img/cf.png">
-    <meta property="og:type" content="website">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
-    <meta name="cf-2fa-verify" content="false">
-    <meta name="cf-auto-minify" content="false">
-    <link rel="preload" href="styles.css" as="style">
-    <link rel="preload" href="img/cf.png" as="image">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <title>CFSUPPORT - Desenvolvimento de Software e Serviços de TI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="manifest" href="manifest.json">
-    <link rel="icon" type="image/x-icon" href="img/cf.ico">
+    <title>CF REMOTO</title>
+    <!-- Link para a fonte Inter do Google Fonts para um visual moderno -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Link para o seu arquivo CSS -->
     <link rel="stylesheet" href="styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos básicos para o body e centralização do app */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #121212; /* Fundo: Preto muito escuro, quase carvão, para um brilho sutil */
+            font-family: 'Inter', sans-serif; /* Aplica a fonte Inter */
+            color: #FFFFFF; /* Cor de texto padrão: Branco */
+        }
+
+        #app {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            background-color: #1A1A1A; /* Fundo mais claro para o container principal, criando profundidade */
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Sombra mais forte para o efeito "brilhoso" */
+            max-width: 90%; /* Ajusta a largura máxima para responsividade */
+            width: 800px; /* Largura padrão para desktop */
+            box-sizing: border-box; /* Inclui padding e borda na largura total */
+        }
+
+        .logo {
+            width: 100px; /* Tamanho da logo */
+            height: auto;
+            margin-bottom: 1.5rem;
+            border-radius: 8px; /* Cantos arredondados para a logo */
+        }
+
+        /* Contêiner principal para as seções de conexão e acesso remoto (lado a lado) */
+        .container {
+            display: flex; /* Habilita o flexbox */
+            flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha em telas menores */
+            justify-content: space-around; /* Distribui o espaço entre os itens */
+            gap: 2rem; /* Espaçamento entre as colunas */
+            width: 100%; /* Ocupa a largura total do #app */
+            margin-bottom: 1.5rem;
+        }
+
+        .connection, .remote-access {
+            flex: 1; /* Permite que cada coluna cresça e ocupe o espaço disponível */
+            min-width: 300px; /* Largura mínima antes de quebrar a linha */
+            background-color: #2A2A2A; /* Fundo para as seções */
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Sombra para as seções internas */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centraliza o conteúdo dentro da coluna */
+            text-align: center; /* Centraliza o texto */
+        }
+
+        h1, h2, h3 {
+            color: #FFFFFF; /* Cor de destaque para os títulos: Branco */
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: #E0E0E0; /* Cor da label: Cinza claro */
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: calc(100% - 20px); /* Ajusta a largura do input */
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #444;
+            border-radius: 6px;
+            background-color: #333;
+            color: #FFFFFF; /* Cor do texto do input: Branco */
+            font-size: 1rem;
+            box-sizing: border-box; /* Inclui padding e borda na largura total */
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            outline: none;
+            border-color: #007BFF; /* Borda de foco: Azul padrão para destaque */
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3); /* Sombra de foco: Azul padrão */
+        }
+
+        .id-container div, .remote-access div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        button {
+            background-color: #007BFF; /* Cor de fundo do botão (mantido azul padrão para destaque) */
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin: 0.5rem; /* Espaçamento entre os botões */
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        /* Estilo para a área de mensagens de status */
+        #statusMessage {
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            color: #FFFFFF; /* Cor da mensagem de status: Branco */
+            text-align: center;
+            width: 100%;
+        }
+
+        /* Seção de informações do usuário */
+        .user-info {
+            background-color: #2A2A2A;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            margin-top: 2rem;
+            width: 100%;
+            max-width: 600px; /* Limita a largura para melhor leitura */
+            box-sizing: border-box;
+            text-align: left; /* Alinha o texto à esquerda dentro da caixa */
+        }
+
+        .user-info h3 {
+            color: #FFFFFF; /* Cor do título da informação do usuário: Branco */
+            margin-bottom: 1rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .user-info p {
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .user-info strong {
+            color: #E0E0E0; /* Cor do "strong" na informação do usuário: Cinza claro */
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column; /* Empilha as colunas em telas menores */
+                gap: 1.5rem;
+            }
+
+            .connection, .remote-access {
+                min-width: unset; /* Remove a largura mínima para melhor ajuste */
+                width: 100%; /* Ocupa a largura total disponível */
+            }
+
+            #app {
+                padding: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="navbar">
-            <div class="nav-container">
-                <div class="nav-logo">
-                    <div class="logo-container">
-                        <img src="img/cf.png" alt="CFSUPPORT" class="logo-img">
-                        <div class="logo-glow"></div>
-                        <div class="logo-circuit">
-                            <div class="circuit-line circuit-line-1"></div>
-                            <div class="circuit-line circuit-line-2"></div>
-                            <div class="circuit-dot circuit-dot-1"></div>
-                            <div class="circuit-dot circuit-dot-2"></div>
-                        </div>
-                    </div>
-                </div>
-                <ul class="nav-menu">
-                    <li class="nav-item">
-                        <a href="#home" class="nav-link">
-                            <i class="fas fa-home nav-icon"></i>
-                            <span class="nav-text">Início</span>
-                            <div class="nav-hover-effect"></div>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#services" class="nav-link">
-                            <i class="fas fa-cogs nav-icon"></i>
-                            <span class="nav-text">Serviços</span>
-                            <div class="nav-hover-effect"></div>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#products" class="nav-link">
-                            <i class="fas fa-box nav-icon"></i>
-                            <span class="nav-text">Produtos</span>
-                            <div class="nav-hover-effect"></div>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#about" class="nav-link">
-                            <i class="fas fa-info-circle nav-icon"></i>
-                            <span class="nav-text">Sobre</span>
-                            <div class="nav-hover-effect"></div>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#contact" class="nav-link">
-                            <i class="fas fa-envelope nav-icon"></i>
-                            <span class="nav-text">Contato</span>
-                            <div class="nav-hover-effect"></div>
-                        </a>
-                    </li>
-                </ul>
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <div id="app">
+        <img src="img/cf.ico" alt="Logo CF Remoto" class="logo">
+        <h1>Bem-vindo(a) ao CF Remoto</h1>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1 class="hero-title">Soluções Completas em Tecnologia</h1>
-                <p class="hero-subtitle">Desenvolvimento de software, suporte técnico e hospedagem em nuvem para impulsionar seu negócio</p>
-            </div>
-            <div class="hero-image">
-                <div class="hero-graphic">
-                    <i class="fas fa-code"></i>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services">
         <div class="container">
-            <div class="section-header">
-                <h2>Nossos Serviços</h2>
-                <p>Oferecemos soluções completas em tecnologia para atender todas as necessidades do seu negócio</p>
+            <div class="connection">
+                <h2>Conexão</h2>
+                <div class="id-container">
+                    <label for="accessId">ID de Acesso:</label>
+                    <input type="text" id="accessId" placeholder="Gerando ID..." readonly>
+                    <button id="copyId">Copiar ID</button>
+                    <label for="password">Senha:</label>
+                    <input type="password" id="password" placeholder="Gerando Senha..." readonly>
+                    <div>
+                        <button id="generateId">Gerar Novo ID</button>
+                        <button id="generatePassword">Gerar Nova Senha</button>
+                    </div>
+                </div>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <h3>Desenvolvimento de Software</h3>
-                    <p>Criação de aplicações personalizadas, sistemas web e mobile sob medida para sua empresa.</p>
-                    <ul class="service-features">
-                        <li>Aplicações Web</li>
-                        <li>Sistemas Desktop</li>
-                        <li>Aplicativos Mobile</li>
-                        <li>APIs e Integrações</li>
-                    </ul>
+            <div class="remote-access">
+                <h2>Acesso Remoto</h2>
+                <div>
+                    <label for="remoteId">ID Remoto:</label>
+                    <input type="text" id="remoteId" placeholder="Digite o ID do parceiro">
+                    <label for="remotePassword">Senha (Opcional):</label>
+                    <input type="password" id="remotePassword" placeholder="Digite a senha do parceiro">
                 </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <h3>Suporte Técnico</h3>
-                    <p>Suporte especializado para sistemas Linux e Windows, garantindo o funcionamento otimizado da sua infraestrutura.</p>
-                    <ul class="service-features">
-                        <li>Suporte Linux</li>
-                        <li>Suporte Windows</li>
-                        <li>Manutenção Preventiva</li>
-                        <li>Resolução de Problemas</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-server"></i>
-                    </div>
-                    <h3>Gerenciamento de Servidores</h3>
-                    <p>Configuração, monitoramento e manutenção de servidores para máxima performance e segurança.</p>
-                    <ul class="service-features">
-                        <li>Configuração de Servidores</li>
-                        <li>Monitoramento 24/7</li>
-                        <li>Backup e Segurança</li>
-                        <li>Otimização de Performance</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-code-branch"></i>
-                    </div>
-                    <h3>Desenvolvimento Backend</h3>
-                    <p>Criação de APIs robustas, bancos de dados eficientes e arquiteturas escaláveis.</p>
-                    <ul class="service-features">
-                        <li>APIs RESTful</li>
-                        <li>Bancos de Dados</li>
-                        <li>Microserviços</li>
-                        <li>Integração de Sistemas</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-paint-brush"></i>
-                    </div>
-                    <h3>Desenvolvimento Frontend</h3>
-                    <p>Interfaces modernas, responsivas e intuitivas que proporcionam excelente experiência do usuário.</p>
-                    <ul class="service-features">
-                        <li>Design Responsivo</li>
-                        <li>UX/UI Moderno</li>
-                        <li>Single Page Applications</li>
-                        <li>Progressive Web Apps</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-cloud"></i>
-                    </div>
-                    <h3>Hospedagem em Nuvem</h3>
-                    <p>Soluções de hospedagem escaláveis e seguras na nuvem para seus projetos e aplicações.</p>
-                    <ul class="service-features">
-                        <li>Deploy Automatizado</li>
-                        <li>Escalabilidade</li>
-                        <li>Alta Disponibilidade</li>
-                        <li>Monitoramento</li>
-                    </ul>
-                </div>
+                <button id="connectRemote">Conectar</button>
             </div>
         </div>
-    </section>
 
-    <!-- Software Products Section -->
-    <section id="products" class="products">
-        <div class="container">
-            <div class="section-header">
-                <h2>Softwares Disponíveis para Vendas Mensais</h2>
-                <p>Soluções completas em software para diferentes segmentos de negócio</p>
-            </div>
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <h3>CF Ponto Eletrônico</h3>
-                    <p>Sistema completo de controle de ponto eletrônico para empresas de todos os portes.</p>
-                    <ul class="product-features">
-                        <li>Controle de Jornada</li>
-                        <li>Relatórios Detalhados</li>
-                        <li>Interface Intuitiva</li>
-                        <li>Backup Automático</li>
-                    </ul>
-                    <div class="product-price">
-                        <span class="price-label">A partir de</span>
-                        <span class="price-value">R$ 99/mês</span>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-icon">
-                        <i class="fas fa-hamburger"></i>
-                    </div>
-                    <h3>CF Sistema de Lanchonete</h3>
-                    <p>Gestão completa para lanchonetes e restaurantes com controle de vendas e estoque.</p>
-                    <ul class="product-features">
-                        <li>Controle de Vendas</li>
-                        <li>Gestão de Estoque</li>
-                        <li>Cardápio Digital</li>
-                        <li>Relatórios Financeiros</li>
-                    </ul>
-                    <div class="product-price">
-                        <span class="price-label">A partir de</span>
-                        <span class="price-value">R$ 149/mês</span>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-icon">
-                        <i class="fas fa-cut"></i>
-                    </div>
-                    <h3>CF Sistema de Barbearia</h3>
-                    <p>Solução especializada para barbearias com agendamento e controle financeiro.</p>
-                    <ul class="product-features">
-                        <li>Agendamento Online</li>
-                        <li>Controle de Clientes</li>
-                        <li>Gestão Financeira</li>
-                        <li>Histórico de Serviços</li>
-                    </ul>
-                    <div class="product-price">
-                        <span class="price-label">A partir de</span>
-                        <span class="price-value">R$ 129/mês</span>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-icon">
-                        <i class="fas fa-shopping-cart"></i>
-                    </div>
-                    <h3>CF Sistema de Vendas Geral</h3>
-                    <p>Sistema versátil de vendas para diversos tipos de comércio e prestação de serviços.</p>
-                    <ul class="product-features">
-                        <li>PDV Completo</li>
-                        <li>Controle de Estoque</li>
-                        <li>Emissão de NFCe</li>
-                        <li>Múltiplas Formas de Pagamento</li>
-                    </ul>
-                    <div class="product-price">
-                        <span class="price-label">A partir de</span>
-                        <span class="price-value">R$ 199/mês</span>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>CF Sistema de Finanças</h3>
-                    <p>Controle financeiro completo para empresas com gestão de fluxo de caixa, contas a pagar e receber.</p>
-                    <ul class="product-features">
-                        <li>Fluxo de Caixa</li>
-                        <li>Contas a Pagar/Receber</li>
-                        <li>Relatórios Financeiros</li>
-                        <li>Controle de Despesas</li>
-                    </ul>
-                    <div class="product-price">
-                        <span class="price-label">A partir de</span>
-                        <span class="price-value">R$ 179/mês</span>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-icon">
-                        <i class="fas fa-desktop"></i>
-                    </div>
-                    <h3>CF Remoto</h3>
-                    <p>Solução de acesso remoto seguro para suporte técnico e trabalho à distância.</p>
-                    <ul class="product-features">
-                        <li>Acesso Remoto Seguro</li>
-                        <li>Suporte Técnico</li>
-                        <li>Transferência de Arquivos</li>
-                        <li>Sessões Criptografadas</li>
-                    </ul>
-                    <div class="product-price">
-                        <span class="price-label">A partir de</span>
-                        <span class="price-value">R$ 89/mês</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="hosting-info">
-                <div class="hosting-card">
-                    <div class="hosting-icon">
-                        <i class="fas fa-server"></i>
-                    </div>
-                    <h3>Hospedagem de Alta Performance</h3>
-                    <p>Hospedagem profissional com alta disponibilidade e performance otimizada.</p>
-                    <!-- CORREÇÃO: A tag <a> aninhada foi removida e o link foi unificado. -->
-                    <a href="https://cloudsbr.com.br/" target="_blank" class="hosting-link" rel="noopener noreferrer">
-                        <i class="fas fa-external-link-alt"></i>
-                        Acesse cloudsbr.com.br
-                    </a>
-                </div>
-            </div>
+        <!-- Área para exibir mensagens de status -->
+        <p id="statusMessage">Aguardando ações...</p>
+        
+        <!-- Seção para informações do usuário -->
+        <div id="userInfo" class="user-info" style="display: none;">
+            <h3>Informações do Usuário</h3>
+            <p><strong>Nome:</strong> <span id="userName"></span></p>
+            <p><strong>IP:</strong> <span id="userIp"></span></p>
+            <p><strong>Endereço MAC:</strong> <span id="userMac"></span></p>
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>Sobre a CFSUPPORT</h2>
-                    <p>Somos uma empresa especializada em soluções tecnológicas completas, oferecendo desde o desenvolvimento de software até a hospedagem e manutenção de sistemas.</p>
-                    <p>Nossa missão é transformar ideias em soluções digitais eficientes, proporcionando aos nossos clientes as ferramentas necessárias para o sucesso no mundo digital.</p>
-                    <div class="about-stats">
-                        <div class="stat">
-                            <h3>50+</h3>
-                            <p>Projetos Entregues</p>
-                        </div>
-                        <div class="stat">
-                            <h3>5+</h3>
-                            <p>Anos de Experiência</p>
-                        </div>
-                        <div class="stat">
-                            <h3>24h</h3>
-                            <p>Suporte Disponível</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-image">
-                    <div class="about-graphic">
-                        <i class="fas fa-users"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2>Entre em Contato</h2>
-                <p>Pronto para transformar sua ideia em realidade? Vamos conversar!</p>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Email</h3>
-                            <p>filadelfiocosmo@gmail.com</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Telefone</h3>
-                            <p>+55 (88) 99326-0939</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Localização</h3>
-                            <p>Crateús, CE - Brasil</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-logo">
-                    <img src="img/cf.png" alt="CFSUPPORT" class="contact-logo-img">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <img src="img/cf.png" alt="CFSUPPORT" class="footer-logo-img">
-                        <h3>CFSUPPORT</h3>
-                    </div>
-                    <p>Transformando ideias em soluções digitais inovadoras.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h4>Serviços</h4>
-                    <ul>
-                        <li><a href="#services">Desenvolvimento de Software</a></li>
-                        <li><a href="#services">Suporte Técnico</a></li>
-                        <li><a href="#services">Hospedagem em Nuvem</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contato</h4>
-                    <ul>
-                        <li>filadelfiocosmo@gmail.com</li>
-                        <li>+55 (88) 99326-0939</li>
-                        <li>Crateús, CE</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 CFSUPPORT. Todos os direitos reservados.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- WhatsApp Float Button -->
-    <div class="whatsapp-float">
-        <a href="https://wa.me/5588993260939" target="_blank" class="whatsapp-btn">
-            <i class="fab fa-whatsapp"></i>
-            <span>Entre em contato</span>
-        </a>
     </div>
-
-    <script src="script.js"></script>
+    
+    <script src="app.js"></script>
 </body>
 </html>
