@@ -2,6 +2,7 @@
 
 /projeto-acesso-remoto
 │
+├── login.html            # Arquivo principal HTML
 ├── index.html            # Arquivo principal HTML
 ├── styles.css            # Arquivo de estilos CSS
 ├── app.js                # Arquivo JavaScript
@@ -10,7 +11,7 @@
 └── /assets               # Pasta para imagens ou ícones
     └── icon.png         # Ícone da PWA
 Descrição dos Arquivos
-index.html: O ponto de entrada do seu aplicativo, onde a estrutura da interface é definida.
+login.html: O ponto de entrada do seu aplicativo, onde a estrutura da interface é definida.
 
 styles.css: Contém os estilos para a interface do usuário, incluindo layout e responsividade.
 
